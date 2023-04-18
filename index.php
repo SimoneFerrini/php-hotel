@@ -57,9 +57,32 @@
 
     ];
 
+    $isParkingRequired = false;
+
+    function setParking($isParkingRequired){
+        $isParkingRequired = !$isParkingRequired;
+        
+    };
+
     ?>
 
     <div class="container">
+        <!-- form bonus -->
+        <form action="" method="GET">
+            <div class="form-info-container">
+                <span>Required Parking: (click to change)</span><br>
+                <div>
+                    <button onclick="setParking($isParkingRequired)"> <?php echo $isParkingRequired ? 'Yes' : 'No' ?></button>
+                </div>
+            </div>
+            <div class="form-info-container">
+                <input type="number" placeholder="Insert min vote to search..."><br>
+                <div>
+                    <button>Search</button>
+                </div>
+            </div>
+
+        </form>
         <!-- tabella per ogni hotel in array-->
         <?php
         foreach ($hotels as $hotel) {
@@ -110,6 +133,8 @@
 
     <!--bootstrap script-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- my script -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>

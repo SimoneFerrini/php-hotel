@@ -2,6 +2,21 @@
     margin-top: 1.5em;
 }
 
+form{
+
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+
+    margin: 1.5em 0;
+    padding: 1em 0;
+}
+
+.form-info-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
 
 td{
     width: 20%;

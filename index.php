@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>php - hotel</title>
+    <!--style bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+
+    <!--my style-->
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
- <?php
+    <?php
 
     $hotels = [
 
@@ -50,27 +57,59 @@
 
     ];
 
-?>
+    ?>
 
-    <ul>
-        <?php 
-            foreach($hotels as $hotel){
+    <div class="container">
+        <!-- tabella per ogni hotel in array-->
+        <?php
+        foreach ($hotels as $hotel) {
+            ?>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <!-- colonna per ogni info in hotel-->
+                        <?php
+                        foreach ($hotel as $info => $value) {
+                            ?>
+                            <th scope="col">
+
+                                <?php echo $info ?>
+
+                            </th>
+                        <?php } ?>
+
+                    </tr>
+                </thead>
+                <!-- riempire tabella con dati di ogni hotel-->
+                <tbody>
+                    <tr>
+                        <td>
+                            <?php echo $hotel["name"] ?>
+                        </td>
+                        <td>
+                            <?php echo $hotel["description"] ?>
+                        </td>
+                        <!--trasformare echo booleano che restituisce solo 1 o null-->
+                        <td>
+                            <?php echo $hotel['parking'] ? 'Yes' : 'No' ?>
+                        </td>
+                        <td>
+                            <?php echo $hotel["vote"] ?> / 5
+                        </td>
+                        <td>
+                            <?php echo $hotel["distance_to_center"] ?> Km
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        <?php
+        }
         ?>
+    </div>
 
-        <li>
-                
-                <span> Hotel: <?php echo $hotel["name"] ?></span><br>
-                <span> Description: <?php echo $hotel["description"] ?></span><br>
-                <span> Parking: <?php echo $hotel["parking"] ?></span><br>
-                <span> Vote: <?php echo $hotel["vote"] ?></span><br>
-                <span> Distance to center: <?php echo $hotel["distance_to_center"] ?></span><br>
-                <br>
-        </li>
-
-        <?php 
-            }
-        ?>
-    </ul>
-
+    <!--bootstrap script-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
